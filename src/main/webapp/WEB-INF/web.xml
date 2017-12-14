@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <display-name>Archetype Created Web Application</display-name>
+  
+  
+  <servlet>
+  	<servlet-name>Accueil</servlet-name>
+  	<servlet-class>com.appli.servlets.Accueil</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Connexion</servlet-name>
+  	<servlet-class>com.appli.servlets.Connexion</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Inscription</servlet-name>
+  	<servlet-class>com.appli.servlets.Inscription</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Deconnexion</servlet-name>
+  	<servlet-class>com.appli.servlets.Deconnexion</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RechercheResult</servlet-name>
+  	<servlet-class>com.appli.servlets.RechercheResult</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DetailSite</servlet-name>
+  	<servlet-class>com.appli.servlets.DetailSite</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DetailSecteur</servlet-name>
+  	<servlet-class>com.appli.servlets.DetailSecteur</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddSite</servlet-name>
+  	<servlet-class>com.appli.servlets.AddSite</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Delete</servlet-name>
+  	<servlet-class>com.appli.servlets.Delete</servlet-class>
+  </servlet>
+  
+  
+  
+  <servlet-mapping>
+  	<servlet-name>Accueil</servlet-name>
+  	<url-pattern>/accueil</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Connexion</servlet-name>
+  	<url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Inscription</servlet-name>
+  	<url-pattern>/inscription</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Deconnexion</servlet-name>
+  	<url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RechercheResult</servlet-name>
+  	<url-pattern>/rechercheResult</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailSite</servlet-name>
+  	<url-pattern>/detailSite</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailSecteur</servlet-name>
+  	<url-pattern>/detailSecteur</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddSite</servlet-name>
+  	<url-pattern>/addSite</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Delete</servlet-name>
+  	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>
+

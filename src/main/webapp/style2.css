@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+
+html, body
+{
+	margin : 0;
+	font-family : Arial;
+}
+
+header
+{
+	background-color : #CD5C5C;
+	font-family : Arial;
+}
+
+section
+{
+	margin-left : 35px;
+}
+
+#search
+{
+	display :flex;
+	margin-left : 25px;
+	margin-top : 25px;
+}
+
+h2
+{
+	background-color : #FFCC99;
+}
+
+#titre 
+{
+	display : flex;
+	color : white;
+	justify-content : space-around;
+}
+
+.elementlien
+{
+	margin : auto;
+}
+
+#main
+{
+	display : flex;
+	flex-direction : column;
+	margin : 40px;
+}
+
+.lien
+{
+	width : 50px;
+}
+
+
+#add
+{
+	display : flex;
+	flex-wrap : nowrap;
+	justify-content : space-around;
+	margin-top : 70px;
+	margin-left : 0px;
+	background-color : #DEB887;
+
+}

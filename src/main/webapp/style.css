@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+
+html, body
+{
+	margin : 0;
+	font-family : Arial;
+}
+
+header
+{
+	display : flex;
+	background-color : #CD5C5C;
+	font-family : Arial;
+	justify-content : center;
+}
+
+#titre 
+{
+	color : white;
+}
+
+#main
+{
+	display : flex;
+	flex-direction : column;
+	margin : 40px;
+}
+
+.lien
+{
+	width : 50px;
+}
+
+.retour
+{
+	justify-content : flex-start;
+}
+
+#add
+{
+	display : flex;
+	flex-wrap : nowrap;
+	justify-content : space-around;
+	margin-top : 70px;
+	margin-left : 0px;
+	background-color : #DEB887;
+
+}
