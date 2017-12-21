@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Connexion</title>
+<link rel="stylesheet" href="style2.css" />
 </head>
 <body>
+<header>
+<div id = "titre">
+<h1>
+Connexion
+</h1>
+</div>
+</header>
+<section>
 <p>
 <a href ="accueil">Accueil</a>
 </p>
@@ -31,7 +38,7 @@
 	</form>
 </p>
 <p>
-<c:if test ="${validation.pass == 'ok'}">Vous vous Ãªtes bien connectÃ©</br>
+<c:if test ="${validation.pass == 'ok'}">Vous vous êtes bien connecté</br>
 Bienvenue sur le site, <strong><c:out value = "${sessionScope.utilisateur.identifiant }"/></strong>
 </c:if>
 <c:if test ="${validation.pass == 'notok' }">Mot de passe incorrect</c:if>
@@ -41,7 +48,8 @@ Bienvenue sur le site, <strong><c:out value = "${sessionScope.utilisateur.identi
 <c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "deconnexion">Deconnexion</a></c:if>
 </p>
 <c:if test ="${sessionScope.utilisateur.identifiant == null }">
-<p>Si vous n'Ãªtes pas encore inscrit, c'est par ici :  <a href = "inscription" >Inscription</a></p>
+<p>Si vous n'êtes pas encore inscrit, c'est par ici :  <a href = "inscription" >Inscription</a></p>
 </c:if>
+</section>
 </body>
 </html>

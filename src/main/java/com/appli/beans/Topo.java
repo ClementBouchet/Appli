@@ -3,7 +3,7 @@ package com.appli.beans;
 public class Topo extends Infopost{
 	
 	public int num;
-	public boolean pret;
+	public String pret;
 	public String emprunteur;
 	public String site;
 
@@ -23,11 +23,11 @@ public class Topo extends Infopost{
 		this.emprunteur = emprunteur;
 	}
 
-	public boolean isPret() {
+	public String getPret() {
 		return pret;
 	}
 
-	public void setPret(boolean pret) {
+	public void setPret(String pret) {
 		this.pret = pret;
 	}
 

@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Inscription</title>
+<link rel="stylesheet" href="style2.css" />
 </head>
 <body>
+<header>
+<div id = "titre">
+<h1>
+Inscription
+</h1>
+</div>
+</header>
+<section>
 <p>
 <a href ="accueil">Accueil</a>
 </p>
@@ -38,15 +45,7 @@
 	</form>
 </p>
 
-<p>
-<ul>	
-	<c:forEach var = "utilisateur" items="${utilisateurs }" >
-		<li>
-			<c:out value="${utilisateur.identifiant }"/>
-		</li>
-	</c:forEach>
-</ul>
-</p>
 
+</section>
 </body>
 </html>

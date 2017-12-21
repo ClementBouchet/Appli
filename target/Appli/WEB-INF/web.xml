@@ -5,6 +5,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
   <display-name>Archetype Created Web Application</display-name>
+  
+  
   <servlet>
   	<servlet-name>Accueil</servlet-name>
   	<servlet-class>com.appli.servlets.Accueil</servlet-class>
@@ -21,6 +23,57 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   	<servlet-name>Deconnexion</servlet-name>
   	<servlet-class>com.appli.servlets.Deconnexion</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>RechercheResult</servlet-name>
+  	<servlet-class>com.appli.servlets.RechercheResult</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DetailSite</servlet-name>
+  	<servlet-class>com.appli.servlets.DetailSite</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DetailSecteur</servlet-name>
+  	<servlet-class>com.appli.servlets.DetailSecteur</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddSite</servlet-name>
+  	<servlet-class>com.appli.servlets.AddSite</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Delete</servlet-name>
+  	<servlet-class>com.appli.servlets.Delete</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddSecteur</servlet-name>
+  	<servlet-class>com.appli.servlets.AddSecteur</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddVoie</servlet-name>
+  	<servlet-class>com.appli.servlets.AddVoie</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddTopo</servlet-name>
+  	<servlet-class>com.appli.servlets.AddTopo</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DetailVoie</servlet-name>
+  	<servlet-class>com.appli.servlets.DetailVoie</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DetailTopo</servlet-name>
+  	<servlet-class>com.appli.servlets.DetailTopo</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddCom</servlet-name>
+  	<servlet-class>com.appli.servlets.AddCom</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AccesPublic</servlet-name>
+  	<servlet-class>com.appli.servlets.AccesPublic</servlet-class>
+  </servlet>
+  
+  
+  
   <servlet-mapping>
   	<servlet-name>Accueil</servlet-name>
   	<url-pattern>/accueil</url-pattern>
@@ -35,7 +88,55 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>Deconnexion</servlet-name>
-  	<url-pattern>/Deconnexion</url-pattern>
+  	<url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RechercheResult</servlet-name>
+  	<url-pattern>/rechercheResult</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailSite</servlet-name>
+  	<url-pattern>/detailSite</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailSecteur</servlet-name>
+  	<url-pattern>/detailSecteur</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddSite</servlet-name>
+  	<url-pattern>/addSite</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Delete</servlet-name>
+  	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddSecteur</servlet-name>
+  	<url-pattern>/addSecteur</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddVoie</servlet-name>
+  	<url-pattern>/addVoie</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddTopo</servlet-name>
+  	<url-pattern>/addTopo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailVoie</servlet-name>
+  	<url-pattern>/detailVoie</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailTopo</servlet-name>
+  	<url-pattern>/detailTopo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddCom</servlet-name>
+  	<url-pattern>/addCom</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AccesPublic</servlet-name>
+  	<url-pattern>/acces_Public</url-pattern>
   </servlet-mapping>
   
   

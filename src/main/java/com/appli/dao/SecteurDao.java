@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.appli.beans.Recherche;
 import com.appli.beans.Secteur;
+import com.appli.beans.Voie;
 
 public interface SecteurDao {
 	
@@ -22,5 +23,5 @@ public interface SecteurDao {
 	
 	public void modifierSecteur(int id, Secteur secteur);
 	
-	
+	public List<Voie> recupererVoie(int ide);
 }

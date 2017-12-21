@@ -55,6 +55,10 @@ public class DaoFactory {
 	    public TopoDao getTopoDao() {
 	    	return new TopoDaoImpl(this);
 	    }
+	    
+	    public DemandeDao getDemandeDao() {
+	    	return new DemandeDaoImpl(this);
+	    }
 	}
 
 

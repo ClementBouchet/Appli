@@ -34,13 +34,27 @@ public class DetailSecteur extends HttpServlet {
 		Secteur secteur = new Secteur();
 		secteur = secteurDao.afficherSecteur(iden);
 		request.setAttribute("iden",iden);
+		request.setAttribute("voies", secteurDao.recupererVoie(iden));
 		request.setAttribute("secteur",secteur);
 		request.setAttribute("coms", comDao.afficherCom(secteur.getNom(), "secteur"));
 		this.getServletContext().getRequestDispatcher("/detailSecteur.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		String ide = request.getParameter("id");
+		int iden = Integer.parseInt(ide);
+		Secteur secteur = new Secteur();
+		if (request.getParameter("id") != null) {
+			secteur.setNom(request.getParameter("nom"));
+			secteur.setSite(request.getParameter("site"));
+			secteur.setRocher(request.getParameter("rocher"));
+			secteurDao.modifierSecteur(iden, secteur);
+		}
+		secteur = secteurDao.afficherSecteur(iden);
+		request.setAttribute("iden",iden);
+		request.setAttribute("secteur",secteur);
+		request.setAttribute("coms", comDao.afficherCom(secteur.getNom(), "secteur"));
+		this.getServletContext().getRequestDispatcher("/detailSecteur.jsp").forward(request, response);
 	}
 
 }

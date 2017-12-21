@@ -40,7 +40,21 @@ public class DetailSite extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String id = request.getParameter("id");
+		int iden = Integer.parseInt(id);
+		Site site = new Site();
+		if (request.getParameter("id") != null) {
+			site.setNom(request.getParameter("nom"));
+			site.setLieu(request.getParameter("lieu"));
+			site.setDescription(request.getParameter("description"));
+			siteDao.modifierSite(iden, site);
+		}
+		site = siteDao.afficherSite(iden);
+		request.setAttribute("secteurs",siteDao.recupererSecteur(iden));
+		request.setAttribute("iden",iden);
+		request.setAttribute("site",site);
+		request.setAttribute("coms", comDao.afficherCom(site.getNom(), "site"));
+		this.getServletContext().getRequestDispatcher("/detailSite.jsp").forward(request, response);
 	}
 
 }

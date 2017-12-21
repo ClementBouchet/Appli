@@ -37,7 +37,7 @@ public class AddSite extends HttpServlet {
 
 		siteDao.ajouterSite(site);
 		request.setAttribute("sites",siteDao.recupererSite());
-		
+		request.setAttribute("message", "Site ajouté!");
 		this.getServletContext().getRequestDispatcher("/addsite.jsp").forward(request, response);
 	}
 

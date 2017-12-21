@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.appli.beans.Recherche;
 import com.appli.beans.Secteur;
+import com.appli.beans.Voie;
 import com.appli.dao.DaoFactory;
 
 public class SecteurDaoImpl implements SecteurDao{
@@ -115,7 +116,7 @@ public class SecteurDaoImpl implements SecteurDao{
 	
 	public Secteur afficherSecteur(int id) {
 		
-		//Affiche les informations dans la page de détail
+		//Affiche les informations dans la page de dï¿½tail
  		Secteur secteur = new Secteur();
 		
 		PreparedStatement statement = null;
@@ -149,7 +150,7 @@ public class SecteurDaoImpl implements SecteurDao{
 	}
 
 	public void supprimerSecteur(int id) {
-		//Pour supprimer un secteur de la base de données
+		//Pour supprimer un secteur de la base de donnï¿½es
 		
 		
 		try {
@@ -165,7 +166,7 @@ public class SecteurDaoImpl implements SecteurDao{
 	}
 
 	public List<Secteur> recupererSecteur(){
-		//Affiche tous les secteurs de la base de données dans la page pour ajouter des secteurs
+		//Affiche tous les secteurs de la base de donnï¿½es dans la page pour ajouter des secteurs
 		List<Secteur> secteurs = new ArrayList<Secteur>();
 		
 		Statement statement = null;
@@ -199,7 +200,7 @@ public class SecteurDaoImpl implements SecteurDao{
 	}
 
 	public void ajouterSecteur(Secteur secteur) {
-		//Permet d'ajouter un nouveau secteur dans la base de données
+		//Permet d'ajouter un nouveau secteur dans la base de donnï¿½es
 		
 		String comSQL = "INSERT INTO Secteur(nom,site,rocher,site_id) "
 				+ "SELECT ?,?,?, id FROM Site WHERE nom = ?;";
@@ -240,7 +241,45 @@ public class SecteurDaoImpl implements SecteurDao{
 		
 	}
 	
-
+	public List<Voie> recupererVoie(int ide){
+		//Affiche toutes les voies de la base de donnï¿½es dans la page pour ajouter des voies
+		List<Voie> voies = new ArrayList<Voie>();
+		
+		Statement statement = null;
+		ResultSet resultat = null;
+		
+		
+		try {
+			connexion = daoFactory.getConnection();
+			statement = connexion.createStatement();
+			resultat = statement.executeQuery("SELECT id, nom, longueur, secteur, cotation FROM Voie WHERE secteur_id ="+ide+";");
+			
+			while(resultat.next()) {
+				String nom = resultat.getString("nom");
+				String secteur = resultat.getString("secteur");
+				long longueur = resultat.getLong("longueur");
+				int id = resultat.getInt("id");
+				String cotation = resultat.getString("cotation");
+				
+				Voie voie = new Voie();
+				
+				voie.setNom(nom);
+				voie.setSecteur(secteur);
+				voie.setLongueur(longueur);
+				voie.setNum(id);
+				voie.setCotation(cotation);
+				
+				voies.add(voie);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return voies;
+		
+	}
 	
 	
 }

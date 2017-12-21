@@ -9,15 +9,21 @@ html, body
 
 header
 {
-	display : flex;
 	background-color : #CD5C5C;
 	font-family : Arial;
-	justify-content : center;
 }
 
-#titre 
+
+#titre
 {
+	display : flex;
+	justify-content : space-around;
 	color : white;
+}
+
+.elementtitre
+{
+	margin : auto;
 }
 
 #main

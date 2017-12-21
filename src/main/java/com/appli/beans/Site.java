@@ -8,7 +8,7 @@ public class Site extends Infopost{
 	protected String rocher;
 	private Voie voie;
 	private String acces;
-	protected String region;
+	protected String région;
 	private String secteur;
 	private int num;
 
@@ -38,10 +38,10 @@ public class Site extends Infopost{
 		this.acces = acces;
 	}
 	public String getRegion() {
-		return region;
+		return région;
 	}
 	public void setRegion(String region) {
-		this.region = region;
+		this.région = region;
 	}
 	public String getLieu() {
 		return lieu;

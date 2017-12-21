@@ -27,7 +27,7 @@ public class VoieDaoImpl implements VoieDao{
 	private String comSQL;
 	
 	public List<Voie> rechercheVoie(HttpServletRequest request) {
-		//Affiche la liste des secteurs correspondants à la recherche
+		//Affiche la liste des secteurs correspondants ï¿½ la recherche
 		List<Voie> voies = new ArrayList<Voie>();
 		
 		PreparedStatement statement = null;
@@ -39,9 +39,9 @@ public class VoieDaoImpl implements VoieDao{
 			result=result.replace("\'", "\'\'");			
 		}
 		if (critere != "")
-			comSQL = "SELECT * FROM Voie WHERE nom LIKE '%"+result+"%' AND lieu LIKE '%"+critere+"%';";
+			comSQL = "SELECT * FROM Voie INNER JOIN Secteur ON Secteur.id = Voie.secteur_id INNER JOIN Site ON Site.id = Secteur.site_id WHERE Voie.nom LIKE '%"+result+"%' AND Site.lieu LIKE '%"+critere+"%';";
 		else
-			comSQL = "SELECT * FROM Voie WHERE nom LIKE '%"+result+"%' OR secteur LIKE '%"+result+"%' OR site LIKE '%"+result+"%';";
+			comSQL = "SELECT * FROM Voie WHERE nom LIKE '%"+result+"%' OR secteur LIKE '%"+result+"%';";
 		try {
 			connexion = daoFactory.getConnection();
 			statement = connexion.prepareStatement(comSQL);
@@ -54,7 +54,6 @@ public class VoieDaoImpl implements VoieDao{
 				String secteur = resultat.getString("secteur");
 				long longueur = resultat.getLong("longueur");
 				int id = resultat.getInt("id");
-				String site = resultat.getString("site");
 				String cotation = resultat.getString("cotation");
 				Voie voie = new Voie();
 				voie.setNom(nom);
@@ -62,7 +61,6 @@ public class VoieDaoImpl implements VoieDao{
 				voie.setLongueur(longueur);
 				voie.setNum(id);
 				voie.setCotation(cotation);
-				voie.setSite(site);
 				
 				voies.add(voie);
 			}
@@ -77,7 +75,7 @@ public class VoieDaoImpl implements VoieDao{
 	}
 	
 	public Voie afficherVoie(int id) {
- 		//Affiche les informations dans la page de détail
+ 		//Affiche les informations dans la page de dï¿½tail
  		Voie voie = new Voie();
 		
 		PreparedStatement statement = null;
@@ -111,7 +109,7 @@ public class VoieDaoImpl implements VoieDao{
 	}
 
 	public void supprimerVoie(int id) {
-		//Pour supprimer un secteur de la base de données
+		//Pour supprimer un secteur de la base de donnï¿½es
 		
 		try {
 			connexion = daoFactory.getConnection();
@@ -126,7 +124,7 @@ public class VoieDaoImpl implements VoieDao{
 	}
 
 	public List<Voie> recupererVoie(){
-		//Affiche toutes les voies de la base de données dans la page pour ajouter des voies
+		//Affiche toutes les voies de la base de donnï¿½es dans la page pour ajouter des voies
 		List<Voie> voies = new ArrayList<Voie>();
 		
 		Statement statement = null;
@@ -166,7 +164,7 @@ public class VoieDaoImpl implements VoieDao{
 	}
 
 	public void ajouterVoie(Voie voie) {
-		//Permet d'ajouter un nouveau secteur dans la base de données
+		//Permet d'ajouter un nouveau secteur dans la base de donnï¿½es
 		comSQL = "INSERT INTO Voie(nom,secteur,longueur,cotation,secteur_id) "
 				+ "SELECT ?,?,?,?, id FROM Secteur WHERE nom = ?;";
 		try {
@@ -208,7 +206,7 @@ public class VoieDaoImpl implements VoieDao{
 	}
 	
 	public List<Secteur> recupererSecteur(){
-		//Affiche tous les secteurs de la base de données dans la page pour ajouter des secteurs
+		//Affiche tous les secteurs de la base de donnï¿½es dans la page pour ajouter des secteurs
 		List<Secteur> secteurs = new ArrayList<Secteur>();
 		
 		Statement statement = null;

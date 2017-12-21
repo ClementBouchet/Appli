@@ -38,10 +38,10 @@ Bienvenue sur le site, <strong><c:out value = "${sessionScope.utilisateur.identi
 </p>
 
 <p>
-<c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "Deconnexion">Deconnexion</a></c:if>
+<c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "deconnexion">Deconnexion</a></c:if>
 </p>
 <c:if test ="${sessionScope.utilisateur.identifiant == null }">
-<p>Si vous n'êtes pas encore inscrit, c'est par ici :  <a href = "Inscription" >Inscription</a></p>
+<p>Si vous n'êtes pas encore inscrit, c'est par ici :  <a href = "inscription" >Inscription</a></p>
 </c:if>
 </body>
 </html>

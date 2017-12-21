@@ -18,7 +18,6 @@ public class Accueil extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String utilisateur = request.getParameter("utilisateur");
-		request.setAttribute("message", "EL Evaluated");
 		request.setAttribute("utilisateur", utilisateur);
 		HttpSession session = request.getSession();
 		session.getAttribute("utilisateur");

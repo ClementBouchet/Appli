@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.appli.dao.DaoFactory;
 import com.appli.dao.SecteurDao;
 import com.appli.dao.SiteDao;
+import com.appli.dao.TopoDao;
 import com.appli.dao.VoieDao;
 
 public class Delete extends HttpServlet {
@@ -16,12 +17,14 @@ public class Delete extends HttpServlet {
 	private SiteDao siteDao;
 	private SecteurDao secteurDao;
 	private VoieDao voieDao;
+	private TopoDao topoDao;
 	
 	public void init() throws ServletException {
     	DaoFactory daoFactory = DaoFactory.getInstance();
     	this.siteDao = daoFactory.getSiteDao();
     	this.secteurDao = daoFactory.getSecteurDao();
     	this.voieDao = daoFactory.getVoieDao();
+    	this.topoDao = daoFactory.getTopoDao();
     }
        
     public Delete() {
@@ -33,6 +36,8 @@ public class Delete extends HttpServlet {
 		String ide = request.getParameter("site");
 		String id = request.getParameter("secteur");
 		String ID = request.getParameter("voie");
+		String IDE = request.getParameter("topo");
+		
 		if (ide != null) {
 		int iden = Integer.parseInt(ide);
 		siteDao.supprimerSite(iden);}
@@ -43,6 +48,10 @@ public class Delete extends HttpServlet {
 		else if(ID != null){
 			int iden = Integer.parseInt(ID);
 			voieDao.supprimerVoie(iden);
+		}
+		else if(IDE != null){
+			int iden = Integer.parseInt(ID);
+			topoDao.supprimerTopo(iden);
 		}
 		this.getServletContext().getRequestDispatcher("/delete.jsp").forward(request, response);
 	}
