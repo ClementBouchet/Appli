@@ -20,13 +20,14 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 		this.daoFactory = daoFactory;
 	}
 
-	public List<Utilisateur> recupererUtilisateurs(){
+	public String recupererUtilisateurs(Utilisateur user){
 		
 		List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 		
 		Connection connexion;
 		Statement statement = null;
 		ResultSet resultat = null;
+		String ok = "ok";
 		
 		comSQL = "SELECT identifiant, password FROM Utilisateur;";
 		
@@ -45,30 +46,42 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
                 
                 utilisateurs.add(utilisateur);
 			}
+			int i = 0;
+			
+			while (i < utilisateurs.size()) {
+				if (user.getIdentifiant().equalsIgnoreCase(utilisateurs.get(i).getIdentifiant())) {
+					ok = "not ok";
+				}
+				i++;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		return utilisateurs;
+			
+		return ok;
 	}
 	
 	public void ajouterUtilisateur(Utilisateur utilisateur) {
 		
-		Connection connexion;
 		
+		Connection connexion;
 		
 		try {
 			connexion = daoFactory.getConnection();
+			
+				
             PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO Utilisateur(identifiant, password) VALUES(?, ?);");
             preparedStatement.setString(1, utilisateur.getIdentifiant());
             preparedStatement.setString(2, utilisateur.getPassword());
             
             preparedStatement.executeUpdate();
+			
         } catch (SQLException e) {
             e.printStackTrace();
         }
+		
+		
 	}
 
 	public Validation verifyConnexion(Utilisateur utilisateur) {

@@ -25,8 +25,7 @@ public class Inscription extends HttpServlet {
     }
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("utilisateurs",utilisateurDao.recupererUtilisateurs());	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		this.getServletContext().getRequestDispatcher("/inscription.jsp").forward(request, response);
 	}
@@ -41,15 +40,18 @@ public class Inscription extends HttpServlet {
 		request.setAttribute("utilisateur", utilisateur);
 		request.setAttribute("password", password);
 		request.setAttribute("password2", password2);
-		if( !password.equals(password2)) {
+		
+		if (utilisateurDao.recupererUtilisateurs(utilisateur).equals("not ok")) {
+			utilisateur.setErreur("Cet identifiant est déjà pris, veuillez en choisir un autre svp");
+		}
+		else if ( !password.equals(password2)) {
 			utilisateur.setErreur("Desole "+utilisateur.getIdentifiant()+", la confirmation de votre mot de passe est incorrecte");
 		}
-		else {
-			
+		else{
 			utilisateurDao.ajouterUtilisateur(utilisateur);
 		}
-		request.setAttribute("utilisateurs",utilisateurDao.recupererUtilisateurs());
-		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
+		
+		this.getServletContext().getRequestDispatcher("/inscription.jsp").forward(request, response);
 	}
 
 }

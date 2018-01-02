@@ -7,7 +7,7 @@ import com.appli.beans.Validation;
 
 public interface UtilisateurDao {
 
-	public List<Utilisateur> recupererUtilisateurs();
+	public String recupererUtilisateurs(Utilisateur user);
 	
 	public void ajouterUtilisateur(Utilisateur utilisateur);
 	
