@@ -36,12 +36,14 @@ id		SERIAL 		PRIMARY KEY,
 identifiant 	VARCHAR(20) 	NOT NULL,
 password 	VARCHAR(20) 	NOT NULL
 ) ;
+
 CREATE TABLE Site(
 id		SERIAL 		PRIMARY KEY,
 nom		VARCHAR(200)	NOT NULL,
 lieu		VARCHAR(200) NOT NULL,
 description	TEXT
 ) ;
+
 CREATE TABLE Secteur(
 id		SERIAL 		 PRIMARY KEY,
 nom		VARCHAR(200)	NOT NULL,
@@ -49,6 +51,7 @@ rocher		VARCHAR(200)	NOT NULL,
 site_id		SMALLINT(5)	UNSIGNED	FOREIGN KEY,
 site		VARCHAR(200)
 ) ;
+
 CREATE TABLE commentaire(
 id		SERIAL 		PRIMARY KEY,
 auteur 		VACHAR(40)	NOT NULL,
@@ -57,6 +60,7 @@ type_objet	VARCHAR(30)	NOT NULL,
 nom_objet	VARCHAR(30)	NOT NULL,
 id_objet	SMALLINT(5) 	UNSIGNED	NOT NULL
 ) ;
+
 CREATE TABLE demande(
 id		SERIAL 		PRIMARY KEY,
 auteur		VARCHAR(30)	NOT NULL,
@@ -64,6 +68,7 @@ destinatire	VARCAHR(30)	NOT NULL ,
 topo		VARCHAR(30),
 reponse	VARCHAR(30)
 ) ;
+
 CREATE TABLE topo(
 id		SERIAL 		 PRIMARY KEY,
 nom		VARCHAR(30)	 NOT NULL,
@@ -73,6 +78,7 @@ prêt		VARCHAR(30),
 emprunteur	VARCHAR(30),
 site		VARCHAR(30)
 ) ;
+
 CREATE TABLE voie(
 id		SERIAL		PRIMARY KEY,
 nom		VARCHAR(30)	NOT NULL ,
