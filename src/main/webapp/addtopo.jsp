@@ -14,7 +14,6 @@
 </div>
 </header>
 <section>
-<p><c:out value = "${topo.nom }"/> <c:out value = "${topo.auteur }"/>  <c:out value = "${topo.description }"/></p>
 
 <p>
 Veuillez compléter les champs pour ajouter un nouveau topo.

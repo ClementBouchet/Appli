@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
-<title>DÃ©tail du site</title>
+<title>Détail du site</title>
 <link rel="stylesheet" href="style2.css" />
 </head>
 <body>
@@ -12,7 +10,7 @@
 <div id = "titre">
 	<div class = "elementlien"><a href = "accueil">Accueil</a></div>
 	<div class = "element"><h1>Site</h1></div>
-	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espaceUser">Profil</a></c:if></div>
+	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espace_user">Profil</a></c:if></div>
 </div>
 </header>
 <section>
@@ -21,7 +19,7 @@ Page du site
 </h2>
 <p>
 <c:out value="${site.nom}"/> se situe dans les <c:out value = "${site.lieu }"/>
-</br>L'identifiant de ce site est le numÃ©ro <c:out value="${iden}"/>
+</br>L'identifiant de ce site est le numéro <c:out value="${iden}"/>
 </p>
 <p>Description : </br>
 <c:out value="${site.description }"/>
@@ -79,15 +77,15 @@ Ajouter un commentaire :
 <p>
 <ul>
 	<c:forEach var="com" items="${coms }">
-	<li>PostÃ© par : <i><c:out value = "${com.auteur }"/></i></br>
+	<li>Posté par : <i><c:out value = "${com.auteur }"/></i></br>
 	"<c:out value = "${com.description }"/>"</li>
 	</c:forEach>
 </ul>
 </p>
 </section>
 <p>
-<a href = "modifSite?site=<c:out value = "${site.num}"/>">Modifier </a>
+<a href = "modif?site=<c:out value = "${site.num}"/>">Modifier </a>
 </p>
-<p><a href="addSite">Retour ajout Sites</a></p>
+<p><a href="addsite">Retour ajout Sites</a></p>
 </body>
 </html>

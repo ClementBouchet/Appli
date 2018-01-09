@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -12,12 +10,12 @@
 <div id = "titre">
 	<div class = "elementlien"><a href = "accueil">Accueil</a></div>
 	<div class = "element"><h1>Site</h1></div>
-	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espaceUser">Profil</a></c:if></div>
+	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espace_user">Profil</a></c:if></div>
 </div>
 </header>
 <section>
 <p>
-Veuillez compléter les champs pour ajouter un nouveau secteur.
+Veuillez compl�ter les champs pour ajouter un nouveau secteur.
 </p>
 
 <p>
@@ -47,21 +45,9 @@ Veuillez compléter les champs pour ajouter un nouveau secteur.
 		<input type="submit" value ="Ajouter"/>
 	</form>
 </p>
-<section>
-<p>
-<ul>
-        <c:forEach var="secteur" items="${ secteurs }">
-            <li><c:out value="${ secteur.nom }" />  qui se trouve dans le site :  <c:out value="${ secteur.site }" />
-                 </br>
-            
-            <a href = "detailSecteur?secteur=<c:out value = "${secteur.num}"/>">Check </a>
-			<p>
-            <a href = "delete?secteur=<c:out value = "${secteur.num}"/>">Supprimer ce secteur </a>
-            </p>      
-            </li>
-        </c:forEach>
-    </ul>
-</p>
+<c:out value ="${message }"/>
+</section>
+
 
 </body>
 </html>

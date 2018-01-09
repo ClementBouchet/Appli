@@ -101,7 +101,11 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 		
 		try {
 			connexion = daoFactory.getConnection();
-			statement = connexion.prepareStatement(comSQL);
+			statement = connexion.prepareStatement(comSQL,ResultSet.TYPE_SCROLL_SENSITIVE,
+				    ResultSet.CONCUR_READ_ONLY);
+			// les arguments : "ResultSet.TYPE_SCROLL_SENSITIVE" & "ResultSet.CONCUR_READ_ONLY" sont à rajouter à la 
+			//fonction prepareStatement(...) si on utilise une BDD PostgresQL
+			//(pas besoin si BDD MySQL)
 			statement.setString(1, identifiantTry);
 			result = statement.executeQuery();	
 			if (result.first()) {				

@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -12,14 +10,14 @@
 <div id = "titre">
 	<div class = "elementlien"><a href = "accueil">Accueil</a></div>
 	<div class = "element"><h1>Site</h1></div>
-	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espaceUser">Profil</a></c:if></div>
+	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espace_user">Profil</a></c:if></div>
 </div>
 </header>
 <section>
 <p><c:out value = "${topo.nom }"/> <c:out value = "${topo.auteur }"/>  <c:out value = "${topo.description }"/></p>
 
 <p>
-Veuillez compléter les champs pour ajouter un nouveau topo.
+Veuillez compl�ter les champs pour ajouter un nouveau topo.
 </p>
 
 <p>
@@ -48,18 +46,7 @@ Veuillez compléter les champs pour ajouter un nouveau topo.
 		<input type="submit" value = "Ajouter le topo"/>
 	</form>
 </p>
-
-<p>
-<ul>
-        <c:forEach var="topo" items="${ topos }">
-            <li><c:out value="${ topo.nom }" />  ajouté par : <c:out value="${ topo.auteur }" />
-            </br>
-            <a href = "detailTopo?id=<c:out value = "${topo.num }"/>">Check</a>
-            
-            </li>
-        </c:forEach>
-    </ul>
-</p>
+<c:out value ="${message }"/>
 </section>
 </body>
 </html>

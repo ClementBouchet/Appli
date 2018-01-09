@@ -5,6 +5,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
   <display-name>Archetype Created Web Application</display-name>
+
   
   
   <servlet>
@@ -71,6 +72,14 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   	<servlet-name>AccesPublic</servlet-name>
   	<servlet-class>com.appli.servlets.AccesPublic</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Modif</servlet-name>
+  	<servlet-class>com.appli.servlets.Modif</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Espace_user</servlet-name>
+  	<servlet-class>com.appli.servlets.Espace_user</servlet-class>
+  </servlet>
   
   
   
@@ -104,7 +113,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>AddSite</servlet-name>
-  	<url-pattern>/addSite</url-pattern>
+  	<url-pattern>/addsite</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>Delete</servlet-name>
@@ -138,7 +147,61 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   	<servlet-name>AccesPublic</servlet-name>
   	<url-pattern>/acces_Public</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Modif</servlet-name>
+  	<url-pattern>/modif</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Espace_user</servlet-name>
+  	<url-pattern>/espace_user</url-pattern>
+  </servlet-mapping>
   
+  <filter>
+    <filter-name>Restriction</filter-name>
+    <filter-class>com.appli.filters.Restriction</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Restriction</filter-name>
+    <url-pattern>/addsite</url-pattern>
+    <url-pattern>/addSecteur</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Restriction</filter-name>
+    <url-pattern>/AddVoie</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Restriction</filter-name>
+    <url-pattern>/addVoie</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Restriction</filter-name>
+    <url-pattern>/AddCom</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Restriction</filter-name>
+    <url-pattern>/addCom</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Restriction</filter-name>
+    <url-pattern>/AddTopo</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Restriction</filter-name>
+    <url-pattern>/addtopo</url-pattern>
+  </filter-mapping>
+  
+  
+  
+  
+  
+<jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <include-prelude>/taglibs.jsp</include-prelude>
+    </jsp-property-group>
+  </jsp-config>
   
   
 </web-app>

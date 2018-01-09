@@ -120,7 +120,8 @@ public class SiteDaoImpl implements SiteDao{
 		PreparedStatement statement = null;
 		ResultSet resultat = null;
 		
-		String comSQL = "SELECT id, nom, lieu, description FROM Site WHERE id=?;";
+		String comSQL = "SELECT id, nom, lieu, \"Description\" FROM Site WHERE id=?;";
+		//Il y a un problème de casse pour les noms de colonne dans postgreSQL, d'où l'utilisation des "
 		
 		try {
 			connexion = daoFactory.getConnection();
@@ -130,7 +131,7 @@ public class SiteDaoImpl implements SiteDao{
 			while (resultat.next()) {
 				String nom = resultat.getString("nom");
 				String lieu = resultat.getString("lieu");
-				String description = resultat.getString("description");
+				String description = resultat.getString("Description");
 				site.setNom(nom);
 				site.setLieu(lieu);
 				site.setDescription(description);

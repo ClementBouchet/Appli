@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
-<title>DÃ©tail de la voie</title>
+<title>Détail de la voie</title>
 <link rel="stylesheet" href="style2.css" />
 </head>
 <body>
@@ -12,7 +10,7 @@
 <div id = "titre">
 	<div class = "elementlien"><a href = "accueil">Accueil</a></div>
 	<div class = "element"><h1>Site</h1></div>
-	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espaceUser">Profil</a></c:if></div>
+	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espace_user">Profil</a></c:if></div>
 </div>
 </header>
 <section>
@@ -22,13 +20,13 @@ Page de la voie  :  <c:out value = "${nom }"/>
 
 <p>
 <c:out value="${voie.nom}"/> se situe dans les <c:out value = "${voie.secteur }"/>
-</br>L'identifiant de cette voie est le numÃ©ro <c:out value="${iden}"/>
+</br>L'identifiant de cette voie est le numéro <c:out value="${iden}"/>
 </p>
 
-<p>Longueur :    <c:out value="${voie.longueur }"/> mÃ¨tres</p>
+<p>Longueur :    <c:out value="${voie.longueur }"/> mètres</p>
 
 <p>
-DifficultÃ©:  <c:out value ="${voie.cotation }"/>
+Difficulté:  <c:out value ="${voie.cotation }"/>
 </p>
 
 <h2>Commentaires</h2>
@@ -70,14 +68,14 @@ Ajouter un commentaire :
 <p>
 <ul>
 	<c:forEach var="com" items="${coms }">
-	<li>PostÃ© par : <i><c:out value = "${com.auteur }"/></i></br>
+	<li>Posté par : <i><c:out value = "${com.auteur }"/></i></br>
 	"<c:out value = "${com.description }"/>"</li>
 	</c:forEach>
 </ul>
 </p>
 </section>
 <p>
-<a href = "modifVoie?voie=<c:out value = "${voie.num}"/>">Modifier </a>
+<a href = "modif?voie=<c:out value = "${voie.num}"/>">Modifier </a>
 </p>
 <p><a href="addVoie">Retour ajout Voies</a></p>
 </body>

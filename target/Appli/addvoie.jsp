@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -12,12 +10,12 @@
 <div id = "titre">
 	<div class = "elementlien"><a href = "accueil">Accueil</a></div>
 	<div class = "element"><h1>Site</h1></div>
-	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espaceUser">Profil</a></c:if></div>
+	<div class = "elementlien"><c:if test ="${sessionScope.utilisateur.identifiant != null }"><a href = "espace_user">Profil</a></c:if></div>
 </div>
 </header>
 <section>
 <p>
-Veuillez compl√©ter les champs pour ajouter une nouvelle voie.
+Veuillez complÈter les champs pour ajouter une nouvelle voie.
 </p>
 
 <p>
@@ -40,14 +38,14 @@ Veuillez compl√©ter les champs pour ajouter une nouvelle voie.
 		</p>
 			
 		<p>
-		<label for="longueur"> Longueur de la voie (en m√®tre): </label>
+		<label for="longueur"> Longueur de la voie (en mËtre): </label>
 		<input type="text" id="longueur" name="longueur"/>
 		</p>
 		
 		<p>
-       	<label for="cotation">S√©lectionnez le niveau de difficult√© de la voie :  </label>
+       	<label for="cotation">SÈlectionnez le niveau de difficultÈ de la voie :  </label>
        	<select name="cotation" id="cotation">
-       		<option value="">--S√©lection--</option>
+       		<option value="">--SÈlection--</option>
        		<optgroup label="A">
        			<option value="3a">3a</option>
        			<option value="4a">4a</option>
@@ -81,22 +79,8 @@ Veuillez compl√©ter les champs pour ajouter une nouvelle voie.
 		<input type="submit" value = "Ajouter"/>
 	</form>
 </p>
+<c:out value ="${message }"/>
 
-<p>
-	<ul>
-        <c:forEach var="voie" items="${ voies }">
-            <li><c:out value="${ voie.nom }" />  qui se trouve dans le secteur :  <c:out value="${ voie.secteur }" />
-                 </br>
-                 <c:out value = "${voie.num}"/>
-                 </br>            
-            <a href = "detailVoie?voie=<c:out value = "${voie.num}"/>">Check </a>
-			<p>
-            <a href = "delete?voie=<c:out value = "${voie.num}"/>">Supprimer cette voie </a>
-            </p>      
-            </li>
-        </c:forEach>
-    </ul>
-</p>
 </section>
 </body>
 </html>
